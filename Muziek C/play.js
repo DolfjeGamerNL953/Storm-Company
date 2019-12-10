@@ -1,6 +1,6 @@
-const ytdl = require('ytdl-core');
+import ytdl, { validateURL, getInfo } from 'ytdl-core';
  
-module.exports.run = async (bot, message, args, ops) => {
+export async function run(bot, message, args, ops) {
  
     if (!message.member.voiceChannel) return message.channel.send("Connecteer met een spraak kanaal");
  
@@ -8,11 +8,11 @@ module.exports.run = async (bot, message, args, ops) => {
  
     if (!args[0]) return message.channel.send("Sorry gelieven ene url mee te geven");
  
-    var validate = await ytdl.validateURL(args[0]);
+    var validate = await validateURL(args[0]);
  
     if (!validate) return message.channel.send("Geef een juiste URL op");
  
-    var info = await ytdl.getInfo(args[0]);
+    var info = await getInfo(args[0]);
  
  
     // Verkrijgen van de data als die er al is.
@@ -112,7 +112,7 @@ function Finish(bot, ops, dispatcher) {
  
 }
  
-module.exports.help = {
+export const help = {
     name: "play",
     description: "Speel muziek af"
 }
