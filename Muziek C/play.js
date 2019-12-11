@@ -1,4 +1,4 @@
-import ytdl, { validateURL, getInfo } from 'ytdl-core';
+const ytdl = require('ytdl-core');
  
 export async function run(bot, message, args, ops) {
  
