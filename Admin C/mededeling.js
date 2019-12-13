@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
     mededelingChannel.send(mededelingEmbed);
     var mededelingChannel = message.guild.channels.find("name", "mod-logs");
     if (!mededelingChannel) return message.guild.send("Het kanaal is niet gevonden");
-    banChannel.send(mededelingEmbed);
+    mededelingChannel.send(mededelingEmbed);
 
 }
 
