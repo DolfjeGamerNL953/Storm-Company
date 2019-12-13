@@ -23,6 +23,18 @@ module.exports.run = async (bot, message, args) => {
     ideeChannel.send(ideeEmbed).then(embedMessage => {
         embedMessage.react('👍');
         embedMessage.react('👎');
+
+        
+    var ilogEmbed = new discord.RichEmbed()
+    .setTitle("Nieuw Idee")
+    .setColor("#00FF00")
+    .addField("Idee: ", idee)
+    .addField("Ingezonden door: ", message.author);
+
+    var ilogChannel = message.guild.channels.find("name", "mod-logs");
+    if (!ilogChannel) return message.guild.send("Het kanaal is niet gevonden");
+    ilogChannel.send(ilogEmbed);
+
     });
  
     // Einde.

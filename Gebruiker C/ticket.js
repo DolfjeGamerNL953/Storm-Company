@@ -3,7 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
  
     // ID van de categorie van de tickets.
-    const categoryId = "635798524277030913";
+    const categoryId = "651114524149022730";
  
     // Verkrijg Gebruikersnaam
     var userName = message.author.username;
@@ -35,7 +35,16 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("Support kanaal wordt aangemaakt");
  
     message.channel.send(embedCreateTicket);
+
+    var embedCreateTicketlog = new discord.RichEmbed()
+        .setTitle("Hoi, " + message.author.username)
+        .setFooter("Support kanaal wordt aangemaakt")
+        .ADD_REACTIONS("zet hier je vraag");
  
+        var Ticketlogchannel = message.guild.channels.find("name", "mod-logs");
+        if (!Ticketlogchannel) return message.guild.send("Het kanaal is niet gevonden");
+        Ticketlogchannel.send(embedCreateTicketlog);
+
     // Maak kanaal en zet in juiste categorie.
     message.guild.createChannel(userName + "-" + userDiscriminator, "text").then((createdChan) => { // Maak kanaal
  
