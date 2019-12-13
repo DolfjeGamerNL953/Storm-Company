@@ -1,5 +1,7 @@
 const discord = require("discord.js");
-const botConfig = require("./botconfig.json");
+const botConfig = require("./botConfig.json");
+const levelFile = require("./data/levels.json");
+const coins = require("./data/coins.json");
 
 const fs = require("fs");
 
@@ -22,6 +24,72 @@ fs.readdir("./Gebruiker C/", (err, files) => {
     jsFiles.forEach((f, i) => {
 
         var fileGet = require(`./Gebruiker C/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+})
+
+fs.readdir("./Admin C/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./Admin C/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+})
+
+fs.readdir("./Muziek C/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./Muziek C/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+})
+
+fs.readdir("./commands/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
         console.log(`De file ${f} is geladen`);
 
         bot.commands.set(fileGet.help.name, fileGet);
@@ -106,7 +174,7 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.find("name", "Bezoeker");
+    var role = member.guild.roles.find("name", "klant");
 
     if (!role) return message.channel.send("Deze rol bestaat niet");
 
@@ -158,6 +226,52 @@ bot.on("message", async message => {
     }
 
     if (commands) commands.run(bot, message, args, options);
+
+
+    var randomxP = Math.floor(Math.random(1) * 15 + 1);
+
+    var idUser = message.author.id;
+
+    if(!levelFile[idUser]){
+
+        levelFile[idUser] = {
+
+            xp: 0,
+            level: 0
+
+        }
+
+    }
+
+    levelFile[idUser].xp += randomxP;
+
+    var levelUser = levelFile[idUser].level;
+    var xpUser = levelFile[idUser].xp;
+    var nextLevelXp = levelUser * 500;
+
+    if(nextLevelXp === 0) nextLevelXp = 100;
+
+    if( xpUser >= nextLevelXp){
+
+        levelFile[idUser].level += 1;
+
+        fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err => {
+
+            if(err) console.log(err);
+
+        });
+
+        var logo = bot.user.displayAvatarURL;
+
+        var embedLevel = new discord.RichEmbed()
+        .setDescription("***Level hoger***")
+        .setColor("#00eeff")
+        .setThumbnail(logo)
+        .addField("Nieuw level: ", levelFile[idUser].level)
+
+        message.channel.send(embedLevel);
+
+    }
 
 
     // var msg = message.content.toLowerCase();
@@ -238,6 +352,32 @@ bot.on("message", async message => {
 
     }
 
+    if(!coins[message.author.id]){
+        coins[message.author.id] = {
+            coins: 0
+        };
+    }
+
+    let coinAmt = Math.floor(Math.random()) * 15 + 1;
+    let baseAmt = Math.floor(Math.random()) * 15 + 1;
+    console.log(`${coinAmt} ; ${baseAmt}`);
+
+    if(coinAmt === baseAmt){
+        coins[message.author.id] = {
+            coins: coins[message.author.id].coins + coinAmt
+        };
+        fs.writeFile("../data/coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+        });
+        let coinEmbed = new discord.RichEmbed()
+        .setAuthor(message.author.username)
+        .setColor("#000000ff")
+        .addField("💰", `${coinAmt} coins toegevoegd`);
+
+        message.channel.send(coinEmbed).then(msg => {msg.delete(60000)})
+    }
+
 });
+
 
 bot.login(process.env.token);
