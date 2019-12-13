@@ -54,28 +54,6 @@ fs.readdir("./Admin C/", (err, files) => {
 
 })
 
-fs.readdir("./commands/", (err, files) => {
-
-    if (err) console.log(err);
-
-    var jsFiles = files.filter(f => f.split(".").pop() === "js");
-
-    if (jsFiles.length <= 0) {
-        console.log("Kon geen files vinden");
-        return;
-    }
-
-    jsFiles.forEach((f, i) => {
-
-        var fileGet = require(`./commands/${f}`);
-        console.log(`De file ${f} is geladen`);
-
-        bot.commands.set(fileGet.help.name, fileGet);
-
-    })
-
-})
-
 fs.readdir("./Bot C/", (err, files) => {
 
     if (err) console.log(err);
