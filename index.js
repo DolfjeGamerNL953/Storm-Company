@@ -308,30 +308,30 @@ bot.on("message", async message => {
 
     }
 
-    if(!coins[message.author.id]){
-        coins[message.author.id] = {
-            coins: 0
-        };
-    }
+    // if(!coins[message.author.id]){
+    //     coins[message.author.id] = {
+    //         coins: 0
+    //     };
+    // }
 
-    let coinAmt = Math.floor(Math.random()) * 15 + 1;
-    let baseAmt = Math.floor(Math.random()) * 15 + 1;
-    console.log(`${coinAmt} ; ${baseAmt}`);
+    // let coinAmt = Math.floor(Math.random()) * 15 + 1;
+    // let baseAmt = Math.floor(Math.random()) * 15 + 1;
+    // console.log(`${coinAmt} ; ${baseAmt}`);
 
-    if(coinAmt === baseAmt){
-        coins[message.author.id] = {
-            coins: coins[message.author.id].coins + coinAmt
-        };
-        fs.writeFile("../data/coins.json", JSON.stringify(coins), (err) => {
-            if (err) console.log(err)
-        });
-        let coinEmbed = new discord.RichEmbed()
-        .setAuthor(message.author.username)
-        .setColor("#000000ff")
-        .addField("💰", `${coinAmt} coins toegevoegd`);
+    // if(coinAmt === baseAmt){
+    //     coins[message.author.id] = {
+    //         coins: coins[message.author.id].coins + coinAmt
+    //     };
+    //     fs.writeFile("../data/coins.json", JSON.stringify(coins), (err) => {
+    //         if (err) console.log(err)
+    //     });
+    //     let coinEmbed = new discord.RichEmbed()
+    //     .setAuthor(message.author.username)
+    //     .setColor("#000000ff")
+    //     .addField("💰", `${coinAmt} coins toegevoegd`);
 
-        message.channel.send(coinEmbed).then(msg => {msg.delete(60000)})
-    }
+    //     message.channel.send(coinEmbed).then(msg => {msg.delete(60000)})
+    // }
 
 });
 
