@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const botConfig = require("./botConfig.json");
+const botConfig = require("./botconfig.json");
 const levelFile = require("./data/levels.json");
 const coins = require("./data/coins.json");
 
