@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
     var mededelingEmbed = new discord.RichEmbed()
     .setTitle("Mededeling")
     .setColor(options.kleur)
-    .setDescription(`Bericht van ${announcer} \n\n ${options.titel} \n\n ${options.bericht} \n`)
+    .setDescription(`${options.titel} \n\n ${options.bericht} \n`)
     .setTimestamp();
 
     var mededelingChannel = message.guild.channels.find(`name`, options.kanaal);
