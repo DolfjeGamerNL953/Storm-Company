@@ -45,9 +45,17 @@ module.exports.run = async (bot, message, args) => {
     if(!mededelingChannel) return message.channel.send("Kan het kanaal niet vinden");
 
     mededelingChannel.send(mededelingEmbed);
+
+    
+    var mlogEmbed = new discord.RichEmbed()
+    .setTitle("Mededeling")
+    .setColor(options.kleur)
+    .setDescription(`Bericht van ${announcer} \n\n ${options.titel} \n\n ${options.bericht} \n`)
+    .setTimestamp();
+
     var mededelingChannel = message.guild.channels.find("name", "mod-logs");
     if (!mededelingChannel) return message.guild.send("Het kanaal is niet gevonden");
-    mededelingChannel.send(mededelingEmbed);
+    mededelingChannel.send(mlogEmbed);
 
 }
 
