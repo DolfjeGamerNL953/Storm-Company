@@ -1,6 +1,6 @@
 const discord = require("discord.js");
  
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, reason) => {
  
     // ID van de categorie van de tickets.
     const categoryId = "651114524149022730";
