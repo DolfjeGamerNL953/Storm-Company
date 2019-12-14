@@ -136,7 +136,7 @@ bot.on("guildMemberAdd", member => {
 
     member.addRole(role);
 
-    const channel = member.guild.channels.find("name", "welkom");
+    const channel = member.guild.channels.find("name", "🌐-welkomers");
 
     if (!channel) return;
 
