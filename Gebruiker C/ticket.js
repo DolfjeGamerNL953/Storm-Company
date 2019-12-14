@@ -22,6 +22,11 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("Je hebt al een ticket aangemaakt");
  
             bool = true;
+
+            var reason = args.join(" ").slice(22);
+
+    if (!reason) return message.channel.send("Gelieve een reden op te geven.")
+
  
         }
  
@@ -37,8 +42,8 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(embedCreateTicket);
 
     var embedCreateTicketlog = new discord.RichEmbed()
-        .setTitle("Hoi, " + message.author.username)
-        .setFooter("Support kanaal wordt aangemaakt");
+        .setTitle("Aangemaakt door:," + message.author.username)
+        .addField("Reden:", + reason);
  
         var Ticketlogchannel = message.guild.channels.find("name", "ticket-logs");
         if (!Ticketlogchannel) return message.guild.send("Het kanaal is niet gevonden");
