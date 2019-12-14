@@ -141,7 +141,7 @@ bot.on("guildMemberAdd", member => {
     var welkomEmbed = new discord.RichEmbed()
         .setDescription("Welkom")
         .setColor("#00f7ff")
-        .setThumbnail(message.author.avatarURL)
+        .setThumbnail(bot.user.displayAvatarURL)
         .addField(welkom)
         .addField("U bent op deze server gekomen op:", message.member.joinedAt)
         .addField("Totaal members:", message.guild.memberCount);
