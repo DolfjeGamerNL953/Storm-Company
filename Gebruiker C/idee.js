@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Idee: ", idee)
     .addField("Ingezonden door: ", message.author);
 
-    var ilogChannel = message.guild.channels.find("name", "mod-logs");
+    var ilogChannel = message.guild.channels.find("name", "ideeën-logs");
     if (!ilogChannel) return message.guild.send("Het kanaal is niet gevonden");
     ilogChannel.send(ilogEmbed);
 

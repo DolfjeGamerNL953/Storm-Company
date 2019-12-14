@@ -53,10 +53,6 @@ module.exports.run = async (bot, message, args) => {
     .setDescription(`Bericht van ${announcer} \n\n ${options.titel} \n\n ${options.bericht} \n`)
     .setTimestamp();
 
-    var mededelingChannel = message.guild.channels.find("name", "mod-logs");
-    if (!mededelingChannel) return message.guild.send("Het kanaal is niet gevonden");
-    mededelingChannel.send(mlogEmbed);
-
 }
 
 module.exports.help = {

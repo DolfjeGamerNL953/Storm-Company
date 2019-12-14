@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (user.hasPermission("MANAGE_MESSAGES")) return message.channel.send("De persoon kan u niet muten.");
 
-    var muteRole = message.guild.roles.find("name", "Muted");
+    var muteRole = message.guild.roles.find("name", "muted");
 
     if (!muteRole) return message.channel.send("De role muted bestaat niet");
 

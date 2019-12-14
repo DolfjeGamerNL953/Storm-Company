@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Gekickt door:", message.author)
         .addField("Reden", reason);
 
-    var kickChannel = message.guild.channels.find("name", "straffen");
+    var kickChannel = message.guild.channels.find("name", "kick-logs");
     if (!kickChannel) return message.guild.send("Het kanaal is niet gevonden");
 
     message.guild.member(kickUser).kick(reason);

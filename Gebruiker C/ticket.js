@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("Support kanaal wordt aangemaakt")
         .ADD_REACTIONS("zet hier je vraag");
  
-        var Ticketlogchannel = message.guild.channels.find("name", "mod-logs");
+        var Ticketlogchannel = message.guild.channels.find("name", "ticket-logs");
         if (!Ticketlogchannel) return message.guild.send("Het kanaal is niet gevonden");
         Ticketlogchannel.send(embedCreateTicketlog);
 

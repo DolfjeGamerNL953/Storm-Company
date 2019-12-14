@@ -31,7 +31,10 @@ module.exports.run = async (bot, message, args) => {
         // Een await gaat wachten tot er een "belofte" komt.
         await message.guild.member(user).ban(reason);
 
-        message.channel.send(`${user} is gebanned voor ${tempBanTime}`);
+        var untempban = (`${user} is gebanned voor ${tempBanTime}`);
+        var templogchannel = message.guild.channels.find("name", "tempban-logs");
+    if (!templogchannel) return message.guild.send("Het kanaal is niet gevonden");
+    templogchannel.send(untempban);
 
         // We gaan een timeout zetten voor terug te unbannen.
         setTimeout(function () {

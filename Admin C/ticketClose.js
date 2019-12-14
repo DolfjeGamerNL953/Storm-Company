@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("ticket gesloten");
  
     // Vind kanaal voor de logs.
-    var logChannel = message.guild.channels.find("name", "log");
+    var logChannel = message.guild.channels.find("name", "ticket-logs");
     if (!logChannel) return message.channel.send("Kanaal bestaat niet");
  
     logChannel.send(embedCloseTicket);

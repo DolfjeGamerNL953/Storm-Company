@@ -23,7 +23,10 @@ module.exports.run = async (bot, message, args) => {
 
     await (user.addRole(muteRole.id));
 
-    message.channel.send(`${user} is gemuted voor ${muteTime}`);
+    var mutetext = (`${user} is gemuted voor ${muteTime}`);
+    var mutelogchannel = message.guild.channels.find("name", "mute-logs");
+    if (!mutelogchannel) return message.guild.send("Het kanaal is niet gevonden");
+    mutelogchannel.send(mutetext);
 
     setTimeout(function () {
 

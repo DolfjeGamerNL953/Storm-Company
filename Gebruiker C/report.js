@@ -25,13 +25,23 @@ module.exports.run = async (bot, message, args) => {
         .addField("Reden", reason)
         .setFooter(message.createdAt);
 
-    var channelReport = message.guild.channels.find("name", "straffen");
+    var channelReport = message.guild.channels.find("name", "reports");
     if (channelReport) return message.channel.send("U heeft de gebruiker succesvol gerapporteerd");
-
+    
     // ZORG VOOR ADMINISTRATOR RECHTEN OP BOT.
     message.delete();
 
-    return channelReport.send(reportEmbed);
+    var reportEmbed = new discord.RichEmbed()
+        .setDescription("Reports")
+        .setColor("ff0000")
+        .addField("Reported gebruiker", `${user} met ID ${user.id}`)
+        .addField("Report door", `${message.author} met het id ${message.author.id}`)
+        .addField("Reden", reason)
+        .setFooter(message.createdAt);
+        
+        var reportlogChannel = message.guild.channels.find("name", "report-logs");
+        if (!reportlogChannel) return message.guild.send("Het kanaal is niet gevonden");
+        reportlogChannel.send(reportEmbed);
 
 }
 
