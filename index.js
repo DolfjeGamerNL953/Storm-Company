@@ -130,7 +130,7 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.find("name", "klant");
+    var role = member.guild.roles.find("name", "Klant");
 
     if (!role) return message.channel.send("Deze rol bestaat niet");
 

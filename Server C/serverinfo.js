@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    var icon = bot.user.displayAvatarURL;
+    var icon = message.author.avatarURL;
 
     var serverEmbed = new discord.RichEmbed()
         .setDescription("GamesNL Community Server Info")
