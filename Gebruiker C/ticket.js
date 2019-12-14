@@ -36,14 +36,21 @@ module.exports.run = async (bot, message, args, reason) => {
     if (bool == true) return;
  
     var embedCreateTicket = new discord.RichEmbed()
-        .setTitle("Hoi, " + message.author.username)
-        .setFooter("Support kanaal wordt aangemaakt");
+    .setDescription("Ticket")
+    .setTitle("Hai," + message.author.username)
+    .setFooter("Support kanaal is aangemaakt")
+    .setColor("#00eeff")
+    .addField("Reden", reason);
  
     message.channel.send(embedCreateTicket);
 
+    
     var embedCreateTicketlog = new discord.RichEmbed()
-        .setTitle("Aangemaakt door:," + message.author.username)
-        .addField("Reden:", + reason);
+    .setDescription("Ticket")
+    .setTitle("Hai," + message.author.username)
+    .setFooter("Support kanaal is aangemaakt")
+    .setColor("#00eeff")
+    .addField("Reden", reason);
  
         var Ticketlogchannel = message.guild.channels.find("name", "ticket-logs");
         if (!Ticketlogchannel) return message.guild.send("Het kanaal is niet gevonden");
