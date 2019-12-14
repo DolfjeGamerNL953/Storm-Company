@@ -130,7 +130,7 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member => {
 
-    var welkom = channel.send(`Welkom ${member} bij de GamesNL community lees even de regels door`)
+    var welkom = "Welkom ${member} bij de GamesNL community lees even de regels door"
 
     var role = member.guild.roles.find("name", "Klant");
 
