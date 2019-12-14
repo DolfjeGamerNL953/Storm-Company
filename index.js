@@ -130,18 +130,29 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member => {
 
+    var welkom = channel.send(`Welkom ${member} bij de GamesNL community lees even de regels door`)
+
     var role = member.guild.roles.find("name", "Klant");
 
     if (!role) return message.channel.send("Deze rol bestaat niet");
 
     member.addRole(role);
 
-    const channel = member.guild.channels.find("name", "🌐-welkomers");
+    var welkomEmbed = new discord.RichEmbed()
+        .setDescription("Welkom")
+        .setColor("#00f7ff")
+        .setThumbnail(message.author.avatarURL)
+        .addField(welkom)
+        .addField("U bent op deze server gekomen op:", message.member.joinedAt)
+        .addField("Totaal members:", message.guild.memberCount);
 
-    if (!channel) return;
+        var channel = member.guild.channels.find("name", "🌐-welkomers");
+        var welkomChannel = message.guild.channels.find("name", "🌐-welkomers");
+    if (!welkomChannel) return message.guild.send("Het kanaal is niet gevonden");
 
-    channel.send(`Welkom ${member} bij de GamesNL community lees even de regels door`)
-
+    message.guild.member(banUser).ban(reason);
+ 
+    welkomChannel.send(welkomEmbed);
 });
 
 
@@ -188,7 +199,7 @@ bot.on("message", async message => {
 
     var idUser = message.author.id;
 
-    if(!levelFile[idUser]){
+    if (!levelFile[idUser]) {
 
         levelFile[idUser] = {
 
@@ -205,25 +216,25 @@ bot.on("message", async message => {
     var xpUser = levelFile[idUser].xp;
     var nextLevelXp = levelUser * 500;
 
-    if(nextLevelXp === 0) nextLevelXp = 100;
+    if (nextLevelXp === 0) nextLevelXp = 100;
 
-    if( xpUser >= nextLevelXp){
+    if (xpUser >= nextLevelXp) {
 
         levelFile[idUser].level += 1;
 
         fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err => {
 
-            if(err) console.log(err);
+            if (err) console.log(err);
 
         });
 
         var logo = bot.user.displayAvatarURL;
 
         var embedLevel = new discord.RichEmbed()
-        .setDescription("***Level hoger***")
-        .setColor("#00eeff")
-        .setThumbnail(logo)
-        .addField("Nieuw level: ", levelFile[idUser].level)
+            .setDescription("***Level hoger***")
+            .setColor("#00eeff")
+            .setThumbnail(logo)
+            .addField("Nieuw level: ", levelFile[idUser].level)
 
         message.channel.send(embedLevel);
 
