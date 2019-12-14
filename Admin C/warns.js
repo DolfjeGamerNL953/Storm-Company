@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Gewaarschuwd door:", message.author)
         .addField("Reden", reason);
 
-    var warnChannel = message.guild.channels.find("name", "straffen");
+    var warnChannel = message.guild.channels.find("name", "warn-logs");
     if (!warnChannel) return message.guild.send("Het kanaal is niet gevonden");
 
 

@@ -38,8 +38,7 @@ module.exports.run = async (bot, message, args) => {
 
     var embedCreateTicketlog = new discord.RichEmbed()
         .setTitle("Hoi, " + message.author.username)
-        .setFooter("Support kanaal wordt aangemaakt")
-        .ADD_REACTIONS("zet hier je vraag");
+        .setFooter("Support kanaal wordt aangemaakt");
  
         var Ticketlogchannel = message.guild.channels.find("name", "ticket-logs");
         if (!Ticketlogchannel) return message.guild.send("Het kanaal is niet gevonden");

@@ -32,7 +32,10 @@ module.exports.run = async (bot, message, args) => {
 
         user.removeRole(muteRole.id);
 
-        message.channel.send(`${user} is geunmuted.`);
+        var unmutetext = (`${user} is geunmuted.`);
+        var unmutelogchannel = message.guild.channels.find("name", "mute-logs");
+        if (!unmutelogchannel) return message.guild.send("Het kanaal is niet gevonden");
+        unmutelogchannel.send(mutetext);
 
     }, ms(muteTime));
 
