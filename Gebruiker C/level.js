@@ -33,9 +33,10 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#35ea96")
         .addField("Level", levelUser, true)
         .addField("xp", xpUser, true)
-        .setFooter(`${whenNextLevel} Xp tot volgend level`, message.author.displayAvatarURL);
-
-    message.channel.send(embedLevel).then(msg => { msg.delete(60000) })
+        .setFooter(`${whenNextLevel} Xp tot volgend level`, message.author.displayAvatarURL)
+        .addField("**© 2019 StormCompany**");
+    
+        message.channel.send(embedLevel).then(msg => { msg.delete(60000) })
 }
     
 module.exports.help = {

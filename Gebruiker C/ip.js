@@ -11,7 +11,8 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#00eeff")
         .addField("Server IP", ip)
         .addField("Server Versie:", versie)
-        .addField("Alpha Discord:", alphadiscord);
+        .addField("Alpha Discord:", alphadiscord)
+        .addField("**© 2019 StormCompany**");
 
     message.channel.send(ipEmbed);
 

@@ -23,7 +23,8 @@ module.exports.run = async (bot, message, args) => {
         .addField("Reported gebruiker", `${user} met ID ${user.id}`)
         .addField("Report door", `${message.author} met het id ${message.author.id}`)
         .addField("Reden", reason)
-        .setFooter(message.createdAt);
+        .setFooter(message.createdAt)
+        .addField("**© 2019 StormCompany**");
 
     var channelReport = message.guild.channels.find("name", "reports");
     if (channelReport) return message.channel.send("U heeft de gebruiker succesvol gerapporteerd");

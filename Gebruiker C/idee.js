@@ -29,7 +29,8 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Nieuw Idee")
     .setColor("#00FF00")
     .addField("Idee: ", idee)
-    .addField("Ingezonden door: ", message.author);
+    .addField("Ingezonden door: ", message.author)
+    .addField("**© 2019 StormCompany**");
 
     var ilogChannel = message.guild.channels.find("name", "ideeën-logs");
     if (!ilogChannel) return message.guild.send("Het kanaal is niet gevonden");
