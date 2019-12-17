@@ -19,10 +19,10 @@ module.exports.run = async (bot, message, args) => {
     var iplogEmbed = new discord.RichEmbed()
         .setDescription("AlphaNetwork Server info")
         .setColor("#00eeff")
-        .addField("Server IP", ip)
-        .addField("Server Versie:", versie)
-        .addField("Alpha Discord:", alphadiscord)
-        .addField("Gestuurd door:", message.author.username);
+        .addField("***Server IP***", ip)
+        .addField("***Server Versie***:", versie)
+        .addField("***Alpha Discord***:", alphadiscord)
+        .addField("***Gestuurd door***:", message.author.username);
 
     var iplogChannel = message.guild.channels.find("name", "ip-logs");
     if (!iplogChannel) return message.guild.send("Het kanaal is niet gevonden");
