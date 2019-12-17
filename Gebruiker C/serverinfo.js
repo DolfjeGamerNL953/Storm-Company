@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Servernaam:", message.guild.name)
         .addField("U bent op deze server gekomen op:", message.member.joinedAt)
         .addField("Totaal members:", message.guild.memberCount)
-        .addField("**© 2019 StormCompany**");
+        .setFooter("**© 2019 StormCompany**");
 
     return message.channel.send(serverEmbed);
 
