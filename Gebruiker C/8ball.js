@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     
     if(!args[2]) return message.reply("Stel een volledige vraag");
-    let replies = ["Ja."];
+    let replies = ["Ja., Nee., Misschien."];
 
     let result = Math.floor((Math.random() * replies.lenght));
     let question = args.slice(1).join(" ");
