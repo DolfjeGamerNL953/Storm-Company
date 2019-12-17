@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     .setAuthor(message.author.tag)
     .setColor("#ff9900")
     .addField("Question", question)
-    .addField("Answer", replies[result]);
+    .addField("Answer", result);
 
     message.channel.send(ballembed)
 }

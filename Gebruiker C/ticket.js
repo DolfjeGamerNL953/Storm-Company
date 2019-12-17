@@ -23,11 +23,6 @@ module.exports.run = async (bot, message, args, reason) => {
  
             bool = true;
 
-            var reason = args.join(" ").slice(22);
-
-    if (!reason) return message.channel.send("Gelieve een reden op te geven.")
-
- 
         }
  
     });
