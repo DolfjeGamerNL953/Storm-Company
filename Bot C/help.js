@@ -56,7 +56,9 @@ module.exports.run = async (bot, message, args) => {
     .addField("f")
     .addField("f")
     .addField("f")
-    .addField("f")
+    .addField("f");
+
+    message.channel.send(testembed);
 }
 
 module.exports.help = {
