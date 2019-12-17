@@ -1,6 +1,6 @@
 const discord = require("discord.js");
  
-module.exports.run = async (bot, message, args, reason) => {
+module.exports.run = async (bot, message, args) => {
  
     // ID van de categorie van de tickets.
     const categoryId = "651114524149022730";
@@ -34,8 +34,7 @@ module.exports.run = async (bot, message, args, reason) => {
     .setDescription("Ticket")
     .setTitle("Hai," + message.author.username)
     .setFooter("Support kanaal is aangemaakt")
-    .setColor("#00eeff")
-    .addField("Reden", reason);
+    .setColor("#00eeff");
  
     message.channel.send(embedCreateTicket);
 
@@ -44,8 +43,7 @@ module.exports.run = async (bot, message, args, reason) => {
     .setDescription("Ticket")
     .setTitle("Hai," + message.author.username)
     .setFooter("Support kanaal is aangemaakt")
-    .setColor("#00eeff")
-    .addField("Reden", reason);
+    .setColor("#00eeff");
  
         var Ticketlogchannel = message.guild.channels.find("name", "ticket-logs");
         if (!Ticketlogchannel) return message.guild.send("Het kanaal is niet gevonden");
