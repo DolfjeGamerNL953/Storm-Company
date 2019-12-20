@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     var memeembed = new discord.RichEmbed()
     .setColor("RANDOM")
     .setImage(img)
-    .setTitle(`From /r/${random}`)
+    .setTitle(`Meme`)
     .setURL(`https://reddit.com/r/${random}`);
 
     message.channel.send(memeembed);
