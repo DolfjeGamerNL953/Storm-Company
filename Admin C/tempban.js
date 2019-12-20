@@ -31,6 +31,13 @@ module.exports.run = async (bot, message, args) => {
         // Een await gaat wachten tot er een "belofte" komt.
         await message.guild.member(user).ban(reason);
 
+        var tempbanlog = new discord.RichEmbed()
+        .setDescription("Tijdelijke verbanning")
+        .setColor('RANDOM')
+        .addField("Verbannen gebruiker", user)
+        .addField("Verbannen door:", message.author)
+        .addField("Reden", reason);
+
         var untempban = (`${user} is gebanned voor ${tempBanTime}`);
         var templogchannel = message.guild.channels.find("name", "tempban-logs");
     if (!templogchannel) return message.guild.send("Het kanaal is niet gevonden");

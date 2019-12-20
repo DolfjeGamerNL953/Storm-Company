@@ -24,15 +24,33 @@ module.exports.run = async (bot, message, args) => {
     await (user.addRole(muteRole.id));
 
     var mutetext = (`${user} is gemuted voor ${muteTime}`);
+
+    var muteEmbed = new discord.RichEmbed()
+        .setDescription("Mute")
+        .setColor('RANDOM')
+        .addField("Gemute gebruiker", user)
+        .addField("Gemute door:", message.author)
+        .addField("Reden", reason)
+        .addField("Mute tijd:", mutetext);
+
     var mutelogchannel = message.guild.channels.find("name", "mute-logs");
     if (!mutelogchannel) return message.guild.send("Het kanaal is niet gevonden");
-    mutelogchannel.send(mutetext);
+    mutelogchannel.send(muteEmbed);
 
     setTimeout(function () {
 
         user.removeRole(muteRole.id);
 
         var unmutetext = (`${user} is geunmuted.`);
+
+        var unmuteEmbed = new discord.RichEmbed()
+            .setDescription("Mute")
+            .setColor('RANDOM')
+            .addField("Gemute gebruiker", user)
+            .addField("Gemute door:", message.author)
+            .addField("Reden", reason)
+            .addField("Unmute:", unmutetext);
+
         var unmutelogchannel = message.guild.channels.find("name", "mute-logs");
         if (!unmutelogchannel) return message.guild.send("Het kanaal is niet gevonden");
         unmutelogchannel.send(mutetext);
