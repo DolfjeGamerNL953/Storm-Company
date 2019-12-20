@@ -36,12 +36,13 @@ module.exports.run = async (bot, message, args) => {
         .setColor('RANDOM')
         .addField("Verbannen gebruiker", user)
         .addField("Verbannen door:", message.author)
-        .addField("Reden", reason);
+        .addField("Reden", reason)
+        .addField("Verban tijd:", tempBanTime);
 
-        var untempban = (`${user} is gebanned voor ${tempBanTime}`);
+        var tempban = (`${user} is gebanned voor ${tempBanTime}`);
         var templogchannel = message.guild.channels.find("name", "tempban-logs");
     if (!templogchannel) return message.guild.send("Het kanaal is niet gevonden");
-    templogchannel.send(untempban);
+    templogchannel.send(tempbanlog);
 
         // We gaan een timeout zetten voor terug te unbannen.
         setTimeout(function () {
