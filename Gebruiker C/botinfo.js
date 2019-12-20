@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Bot naam", bot.user.username)
         .addField("Gemaakt op", "17-12-2019")
         .addField("Gemaakt door", "DolfjeGamerNL")
-        .addField("**© 2019 StormCompany**");
+        .setFooter("**© 2019 StormCompany**");
 
     return message.channel.send(botEmbed);
 
