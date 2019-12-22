@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Ingezonden door: ", message.author);
  
     // Vind het kanaal.
-    var ideeChannel = message.guild.channels.find(`name`, "ideeën");
+    var ideeChannel = message.guild.channels.find(`name`, "ideeën-company");
     if (!ideeChannel) return message.guild.send("Kan het kanaal niet vinden");
  
     // Verzend het bericht en voeg er reacties aan toe.
@@ -43,6 +43,6 @@ module.exports.run = async (bot, message, args) => {
 }
  
 module.exports.help = {
-    name: "idee-comp",
+    name: "idee-company",
     description: "Heb je een idee. Zet het dan hier en misschien passen we het toe."
 }
