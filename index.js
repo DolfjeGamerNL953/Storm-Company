@@ -102,8 +102,11 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is online`);
 
-    bot.user.setActivity("GamesNL Developing", { type: "PLAYING" });
+    bot.user.setActivity("Storm Developing", { type: "PLAYING" });
 
+    answered = true;
+    cAnswer = "";
+    userAnswer = "";
 });
 
 bot.on("guildMemberAdd", member => {
