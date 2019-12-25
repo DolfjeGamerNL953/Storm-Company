@@ -26,8 +26,7 @@ module.exports.run = async (bot, message, args, msg) => {
             answered = false;
             quizUser = message.author;
         }
-        if(err) 
-        console.send(err)
+
     }
 
 module.exports.help = {
