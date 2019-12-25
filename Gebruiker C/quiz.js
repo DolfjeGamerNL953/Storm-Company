@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async (bot, message, args), msg => {
+module.exports.run = async (bot, message, args, msg) => {
 
     if(answered == false && message.author == quizUser) {
         userAnswer = msg;
