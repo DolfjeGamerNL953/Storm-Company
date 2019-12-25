@@ -6,7 +6,8 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("Prijzen")
     .setColor("RANDOM")
     .addField("Prijzen Pakketen:", "€50")
-    .setFooter("**© 2019 StormCompany**");
+    .addField("Prijzen Eten:", "€10")
+    .setFooter("***© 2019 StormCompany***");
 
     message.channel.send(prijzenEmbed)
 }
