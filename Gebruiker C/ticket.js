@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("Ticket")
     .setTitle("Hai," + message.author.username)
     .setFooter("Support kanaal is aangemaakt")
-    .setColor("#00eeff");
+    .setColor("RANDOM");
  
     message.channel.send(embedCreateTicket);
 

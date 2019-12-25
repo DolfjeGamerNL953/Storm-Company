@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     var serverEmbed = new discord.RichEmbed()
         .setDescription("GamesNL Community Server Info")
-        .setColor("#00f7ff")
+        .setColor("RANDOM")
         .setThumbnail(icon)
         .addField("Servernaam:", message.guild.name)
         .addField("U bent op deze server gekomen op:", message.member.joinedAt)
