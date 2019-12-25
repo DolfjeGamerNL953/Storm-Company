@@ -3,7 +3,6 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
     var icon = message.guild.iconURL
-
     var discordtext = "https://discord.gg/yDazdYJ"
     var alphatext = "https://discord.gg/cQfmhja"
     var websitetext = "https://stormcomp.webnode.nl/"
