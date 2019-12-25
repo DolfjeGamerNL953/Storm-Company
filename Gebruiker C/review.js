@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
     
     const review = new discord.RichEmbed()
         .setTitle(`${message.author.username} heeft een review geschreven! :tada:`)
-        .setColor("#00ff00")
+        .setColor("RANDOM")
         .setThumbnail("https://cdn.discordapp.com/attachments/637288939002134545/637289668655841280/636-6369977_free-icons-png-health-and-safety-review-transparent.png")
         .addField("Sterren:", `${sterren}`)
         .addField("Review:", `${bericht}`)

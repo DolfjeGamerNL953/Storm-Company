@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     var ipEmbed = new discord.RichEmbed()
         .setDescription("AlphaNetwork Server info")
-        .setColor("#00eeff")
+        .setColor("RANDOM")
         .addField("Server IP", ip)
         .addField("Server Versie:", versie)
         .addField("Alpha Discord:", alphadiscord)

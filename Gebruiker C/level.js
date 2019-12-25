@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     // Maak embed en zend.
     var embedLevel = new discord.RichEmbed()
         .setTitle(message.author.username)
-        .setColor("#35ea96")
+        .setColor("RANDOM")
         .addField("Level", levelUser, true)
         .addField("xp", xpUser, true)
         .setFooter(`${whenNextLevel} Xp tot volgend level`, message.author.displayAvatarURL)

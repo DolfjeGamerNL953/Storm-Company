@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
     const img = await randomPuppy(random);
     var memeembed = new discord.RichEmbed()
-    .setColor("#c5ff00")
+    .setColor("RANDOM")
     .setImage(img)
     .setTitle(`Meme`)
     .setURL(`https://reddit.com/r/${random}`);

@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    var Thumbnail = icon('💵')
+    // var Thumbnail = icon('💵')
 
     var prijzenEmbed = new discord.RichEmbed()
     .setTitle("Prijzen")

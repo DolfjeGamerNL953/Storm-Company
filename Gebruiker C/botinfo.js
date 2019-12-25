@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     var botEmbed = new discord.RichEmbed()
         .setDescription("GamesNL Manager Bot Info")
-        .setColor("#00f7ff")
+        .setColor("RANDOM")
         .setThumbnail(botIcon)
         .addField("Bot naam", bot.user.username)
         .addField("Gemaakt op", "17-12-2019")

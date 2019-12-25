@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     let coinEmbed = new discord.RichEmbed()
     .setAuthor(message.author.username)
-    .setColor("#00ff00")
+    .setColor("RANDOM")
     .addField("💰", uCoins);
 
     message.channel.send(coinEmbed).then(msg => {msg.delete(60000)});
