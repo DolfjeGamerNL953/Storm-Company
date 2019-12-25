@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, msg, prefix) => {
+module.exports.run = async (bot, message, args, msg) => {
 
     if(answered == false && message.author == quizUser) {
         userAnswer = msg;
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, msg, prefix) => {
     }
 
 
-        if(msg.startsWith(prefix + "quiz")) {
+        {
             number = 3;
             var random = Math.floor (Math.random() * (number - 1 + 1)) + 1;
             switch(random) {
