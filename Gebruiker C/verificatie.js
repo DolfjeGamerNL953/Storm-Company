@@ -1,8 +1,8 @@
 const discord = require("discord.js");
-var role = message.guild.roles.find("name", "Verificatie");
 
 module.exports.run = async (bot, message, args) => {
 
+    var role = message.guild.roles.find("name", "Verificatie");
 
     var roleEmbed = new discord.RichEmbed()
     .setTitle("Verificatie")
