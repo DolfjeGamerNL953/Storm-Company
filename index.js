@@ -132,29 +132,17 @@ bot.on("ready", async () => {
 
 bot.on("guildMemberAdd", member => {
 
-    var welkom = "Welkom ${member} bij de GamesNL community lees even de regels door"
-
     var role = member.guild.roles.find("name", "Klant");
 
-    if (!role) return message.channel.send("Deze rol bestaat niet");
+    if (!role) return;
 
     member.addRole(role);
 
-    var welkomEmbed = new discord.RichEmbed()
-        .setDescription("Welkom")
-        .setColor("#00f7ff")
-        .setThumbnail(bot.user.displayAvatarURL)
-        .addField(welkom)
-        .addField("U bent op deze server gekomen op:", message.member.joinedAt)
-        .addField("Totaal members:", message.guild.memberCount);
+    const channel = member.guild.channels.find("name", "🌐-welkomers")
 
-        var channel = member.guild.channels.find("name", "🌐-welkomers");
-        var welkomChannel = message.guild.channels.find("name", "🌐-welkomers");
-    if (!welkomChannel) return message.guild.send("Het kanaal is niet gevonden");
+    if (!channel) return;
 
-    message.guild.member(banUser).ban(reason);
- 
-    welkomChannel.send(welkomEmbed);
+    channel.send(`Welkom bij StormCompany ${member}`);
 });
 
 
