@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const role = message.guild.roles.get("659706141521215488");
+var role = message.guild.roles.find("name", "Verificatie");
 
 module.exports.run = async (bot, message, args) => {
 
