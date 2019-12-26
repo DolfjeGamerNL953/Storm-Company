@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if(!rMember) return message.reply("Gebruiker niet gevonden")
     let role = args.join(" ").slice(22);
     if(!role) return message.reply("Deze role bestaat niet");
-    let gRole = message.guild.roles.find(`name`, role);
+    let gRole = message.guild.roles.find(`name`, verificatie);
     if(!gRole) return message.reply("De role is niet gevonden");
 
     if(rMember.roles.has(gRole.id));

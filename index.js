@@ -123,7 +123,7 @@ bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is online`);
 
-    bot.user.setActivity("Storm Developing", { type: "PLAYING" });
+    bot.user.setActivity("Storm Developing (Prefix: !)", { type: "PLAYING" });
 
     answered = true;
     cAnswer = "";
