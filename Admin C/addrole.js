@@ -5,11 +5,11 @@ module.exports.run = async (bot, message, args) => {
 
 
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("U heeft hier geen permissies voor");
-    let rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    var rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rMember) return message.reply("Gebruiker niet gevonden")
-    let role = args.join(" ").slice(22);
+    var role = args.join(" ").slice(22);
     if(!role) return message.reply("Deze role bestaat niet");
-    let gRole = message.guild.roles.find(`name`, verificatie);
+    var gRole = message.guild.roles.find(`name`, verificatie);
     if(!gRole) return message.reply("De role is niet gevonden");
 
     if(rMember.roles.has(gRole.id));
