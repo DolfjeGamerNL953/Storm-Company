@@ -14,12 +14,14 @@ module.exports.run = async (bot, message, args) => {
 
     if (banUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Deze gebruiker mag u niet verbannen");
 
-    var ban = new discord.RichEmbed()
+    var banEmbed = new discord.RichEmbed()
         .setDescription("Verbanning")
         .setColor("#ff0000")
         .addField("Verbannen gebruiker", banUser)
         .addField("Verbannen door:", message.author)
         .addField("Reden", reason);
+
+        message.banUser.send(banEmbed)
 
     var banChannel = message.guild.channels.find("name", "ban-logs");
     if (!banChannel) return message.guild.send("Het kanaal is niet gevonden");
