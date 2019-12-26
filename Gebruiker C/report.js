@@ -26,7 +26,16 @@ module.exports.run = async (bot, message, args) => {
         .setFooter(message.createdAt)
         .addField("**© 2019 StormCompany**");
 
-    var channelReport = message.guild.channels.find("name", "reports");
+        var userreportEmbed = new discord.RichEmbed()
+        .setTitle("Report")
+        .setDescription("U heeft succesvol deze gebruiker gerapporteerd bij het Storm Comp Staff")
+        .setColor("ff0000")
+        .addField("De door u gerapporteerde gebruiker:", `${user} met ID ${user.id}`)
+        .addField("De door u opgegeven reden", reason)
+        .setFooter("**© 2019 StormCompany**");
+        message.author.send(userreportEmbed)
+        
+    var channelReport = message.guild.channels.find("name", "report-logs");
     if (channelReport) return message.channel.send("U heeft de gebruiker succesvol gerapporteerd");
     
     // ZORG VOOR ADMINISTRATOR RECHTEN OP BOT.

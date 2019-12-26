@@ -38,7 +38,16 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("© 2019 StormCompany");
 
     // Zend bericht naar de gebruiker dat hij een review heeft aangemaakt.
-    message.author.send(":white_check_mark: Je hebt succesvol een review geschreven!");
+    
+    var userreviewEmbed = new discord.RichEmbed()
+        .setTitle("Idee")
+        .setDescription(":white_check_mark: U heeft succesvol een review geschreven!")
+        .setColor("RANDOM")
+        .addField("Sterren:", `${sterren}`)
+        .addField("Review:", `${bericht}`)
+        .setFooter("© 2019 StormCompany");
+        message.author.send(userreviewEmbed)
+        
     // Zend het bericht in het review kanaal.
     return reviewChannel.send(review);
  

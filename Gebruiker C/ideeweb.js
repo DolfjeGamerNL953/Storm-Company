@@ -17,11 +17,11 @@ module.exports.run = async (bot, message, args) => {
  
         var userideeEmbed = new discord.RichEmbed()
         .setTitle("Idee")
-        .setDescription(":white_check_mark: = Goedgekeurd \n :x: = Afgekeurd \n :question: = er word over nagedacht \n :soon: = Het word binnenkort uitgevoerd")
+        .setDescription("Idee:", idee)
         .setColor("RANDOM")
-        .addField("Idee:", idee);
+        .addField(":white_check_mark: = Goedgekeurd \n :x: = Afgekeurd \n :question: = er word over nagedacht \n :soon: = Het word binnenkort uitgevoerd");
         message.author.send("U heeft succesvol een idee geschreven, u idee:", userideeEmbed)
-
+        
     // Vind het kanaal.
     var ideeChannel = message.guild.channels.find(`name`, "ideeën-website");
     if (!ideeChannel) return message.guild.send("Kan het kanaal niet vinden");
