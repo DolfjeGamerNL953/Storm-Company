@@ -21,7 +21,6 @@ module.exports.run = async (bot, message, args) => {
         .addField("Verbannen door:", message.author)
         .addField("Reden", reason);
 
-        message.banUser.send(banEmbed)
 
     var banChannel = message.guild.channels.find("name", "ban-logs");
     if (!banChannel) return message.guild.send("Het kanaal is niet gevonden");
