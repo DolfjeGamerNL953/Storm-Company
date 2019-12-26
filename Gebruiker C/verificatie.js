@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("U heeft succesvol de verificatie role ontvangen veel plezier op de StormComp discord")
     .setFooter("© 2019 StormCompany");
 
-    message.channel.send(roleEmbed).then(msg => {msg.delete(60000)});
+    message.channel.send(roleEmbed).then(msg => {msg.delete(6)});
 
     message.author.addRole(role)
 }
