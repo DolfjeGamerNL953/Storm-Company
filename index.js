@@ -130,19 +130,36 @@ bot.on("ready", async () => {
     userAnswer = "";
 });
 
+// bot.on("guildMemberAdd", member => {
+
+//     var role = member.guild.roles.find("name", "Klant");
+
+//     if (!role) return;
+
+//     member.addRole(role);
+
+//     const channel = member.guild.channels.find("name", "🌐-welkomers")
+
+//     if (!channel) return;
+
+//     channel.send(`Welkom bij StormCompany ${member}`);
+
+// });
+
 bot.on("guildMemberAdd", member => {
-
-    var role = member.guild.roles.find("name", "Klant");
-
-    if (!role) return;
-
-    member.addRole(role);
-
-    const channel = member.guild.channels.find("name", "🌐-welkomers")
-
-    if (!channel) return;
-
-    channel.send(`Welkom bij StormCompany ${member}`);
+ 
+    const channel = member.guild.channels.find("name", "🌐-welkomers");
+    if (!channel) console.log("Kan het kanaal niet vinden.");
+ 
+    var joinEmbed = new discord.RichEmbed()
+        .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+        .setDescription(`Hoi ${member.user.username}, **Welkom op de server**. Hier nog meer uitleg.`)
+        .setColor("#00FF00")
+        .setTimestamp()
+        .setFooter("Gebruiker gejoined.");
+ 
+    channel.send(joinEmbed);
+ 
 });
 
 
