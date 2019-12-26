@@ -153,10 +153,11 @@ bot.on("guildMemberAdd", member => {
  
     var joinEmbed = new discord.RichEmbed()
         .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
-        .setDescription(`Hoi ${member.user.username}, **Welkom op de server**. Lees even #🚫-regels.`)
+        .setDescription(`Hoi ${member.user.username}, **Welkom op de ${server}**. Lees even #🚫-regels.`)
         .setColor("RANDOM")
         .setTimestamp()
-        .setFooter("Gebruiker gejoined.");
+        .setFooter("Gebruiker gejoined.")
+        .setFooter("© 2019 StormCompany");
  
     channel.send(joinEmbed);
  
