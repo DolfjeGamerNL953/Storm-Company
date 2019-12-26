@@ -1,3 +1,4 @@
+Dupliceer & bewerkRegistreerLogin
 const discord = require("discord.js");
  
 module.exports.run = async (bot, message, args) => {
@@ -22,9 +23,9 @@ module.exports.run = async (bot, message, args) => {
         .addField("Reden", reason);
  
  
-    var banChannel = message.guild.channels.find("name", "ban-logs");
+    var banChannel = client.channels.get("655318206084546580");
     if (!banChannel) return message.guild.send("Het kanaal is niet gevonden");
- 
+
     banUser.send("Wat je wilt als de user vernannen wordt")
  
     message.guild.member(banUser).ban(reason);
