@@ -35,10 +35,10 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail("https://cdn.discordapp.com/attachments/637288939002134545/637289668655841280/636-6369977_free-icons-png-health-and-safety-review-transparent.png")
         .addField("Sterren:", `${sterren}`)
         .addField("Review:", `${bericht}`)
-        .addField("**© 2019 StormCompany**");
+        .setFooter("© 2019 StormCompany");
 
     // Zend bericht naar de gebruiker dat hij een review heeft aangemaakt.
-    message.channel.send(":white_check_mark: Je hebt succesvol een review geschreven!");
+    message.author.send(":white_check_mark: Je hebt succesvol een review geschreven!");
     // Zend het bericht in het review kanaal.
     return reviewChannel.send(review);
  

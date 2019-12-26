@@ -12,9 +12,11 @@ module.exports.run = async (bot, message, args) => {
     var ideeEmbed = new discord.RichEmbed()
         .setTitle("Nieuw Idee")
         .setColor("RANDOM")
-        .addField("Idee: ", idee)
+        .addField("Websiteidee: ", idee)
         .addField("Ingezonden door: ", message.author);
  
+        message.author.send("U heeft succesvol een idee geschreven, u idee:", ideeEmbed)
+
     // Vind het kanaal.
     var ideeChannel = message.guild.channels.find(`name`, "ideeën-website");
     if (!ideeChannel) return message.guild.send("Kan het kanaal niet vinden");
