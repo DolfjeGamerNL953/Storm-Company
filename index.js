@@ -147,19 +147,21 @@ bot.on("ready", async () => {
 // });
 
 bot.on("guildMemberAdd", member => {
- 
+
     const channel = member.guild.channels.find("name", "🌐-welkomers");
     if (!channel) console.log("Kan het kanaal niet vinden.");
- 
+
+    var icon = message.author.avatarURL;
     var joinEmbed = new discord.RichEmbed()
         .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
-        .setDescription(`Hoi ${member.user.username}, **Welkom op de server**. Hier nog meer uitleg.`)
-        .setColor("#00FF00")
+        .setDescription(`Hoi ${member.user.username}, **Welkom op de server**. Lees even #🚫-regels.`)
+        .setThumbnail(icon)
+        .setColor("RANDOM")
         .setTimestamp()
         .setFooter("Gebruiker gejoined.");
- 
+
     channel.send(joinEmbed);
- 
+
 });
 
 
