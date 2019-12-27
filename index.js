@@ -130,13 +130,13 @@ bot.on("ready", async () => {
     userAnswer = "";
 });
 
-// bot.on("guildMemberAdd", member => {
+bot.on("guildMemberAdd", member => {
 
-//     var role = member.guild.roles.find("name", "Klant");
+    var role = member.guild.roles.find("name", "Klant");
 
-//     if (!role) return;
+    if (!role) return;
 
-//     member.addRole(role);
+    member.addRole(role);
 
 //     const channel = member.guild.channels.find("name", "🌐-welkomers")
 
