@@ -4,11 +4,11 @@ module.exports.run = async (bot, message, args) => {
 
     await message.delete().catch(O_o => { });
 
-    const a = message.guild.roles.get('661167241026600991') //verification
-    const b = message.guild.roles.get('661167257296306196') //ban
-    const c = message.guild.roles.get('661167274505404421') //game
+    const a = message.guild.roles.get('<:verification:659729142891151370>') //verification
+    const b = message.guild.roles.get('<:ban:659728673863237642>') //ban
+    const c = message.guild.roles.get('<:game:659746587362459648>') //game
 
-    const filter = (reaction, user) => ['A', 'B', 'C'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['A', 'B', 'C'].includes(reaction.emoji.id) && user.id === message.author.id;
 
     const embed = new RichEmbed()
         .setTitle('Avaiabble Roles')
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 
             const reaction = collected.first();
 
-            switch (reaction.emoji.name) {
+            switch (reaction.emoji.id) {
                 case 'A':
                     if (message.member.roles.has(a.id)) {
                         msg.delete(2000);
