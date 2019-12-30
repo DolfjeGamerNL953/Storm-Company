@@ -4,9 +4,9 @@ module.exports.run = async (bot, message, args) => {
 
     await message.delete().catch(O_o => { });
 
-    const a = message.guild.roles.get('659706141521215488') //verification
-    const b = message.guild.roles.get('659840807297351753') //ban
-    const c = message.guild.roles.get('659841093541560320') //game
+    const a = message.guild.roles.get('661167241026600991') //verification
+    const b = message.guild.roles.get('661167257296306196') //ban
+    const c = message.guild.roles.get('661167274505404421') //game
 
     const filter = (reaction, user) => ['A', 'B', 'C'].includes(reaction.emoji.name) && user.id === message.author.id;
 
@@ -38,6 +38,10 @@ module.exports.run = async (bot, message, args) => {
 
             switch (reaction.emoji.name) {
                 case 'A':
+                    if (message.member.roles.has(a.id)) {
+                        msg.delete(2000);
+                        return message.channel.send('U heeft deze rol al, klopt dit niet meld het dan bij een van de beheerders');
+                    }
                    message.member.addRole(a).catch(err => {
                        console.log(err);
                        return message.channel.send(`Er is iets mis gegaan bij het toevoegen van de rol, meld het bij een van de Beheerders`)
@@ -46,6 +50,10 @@ module.exports.run = async (bot, message, args) => {
                    message.delete();
                     break;
                 case 'B':
+                    if (message.member.roles.has(b.id)) {
+                        msg.delete(2000);
+                        return message.channel.send('U heeft deze rol al, klopt dit niet meld het dan bij een van de beheerders');
+                    }
                     message.member.addRole(b).cbtch(err => {
                         console.log(err);
                         return message.channel.send(`Er is iets mis gegaan bij het toevoegen van de rol, meld het bij een van de Beheerders`)
@@ -54,6 +62,10 @@ module.exports.run = async (bot, message, args) => {
                     message.delete();
                     break;
                 case 'C':
+                    if (message.member.roles.has(c.id)) {
+                        msg.delete(2000);
+                        return message.channel.send('U heeft deze rol al, klopt dit niet meld het dan bij een van de beheerders');
+                    }
                     message.member.addRole(c).catch(err => {
                         console.log(err);
                         return message.channel.send(`Er is iets mis gegaan bij het toevoegen van de rol, meld het bij een van de Beheerders`)
