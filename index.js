@@ -1,5 +1,5 @@
 const discord = require("discord.js");
-const botConfig = require("./botConfig.json");
+const botconfig = require("./botconfig.json");
 const levelFile = require("./data/levels.json");
 const coins = require("./data/coins.json");
  
@@ -216,13 +216,13 @@ bot.on("message", async message => {
  
     if (!prefixes[message.guild.id]) {
         prefixes[message.guild.i] = {
-            prefixes: botConfig.prefix
+            prefixes: botconfig.prefix
         };
     }
  
     // var prefix = prefixes[message.guild.id].prefixes;
  
-    var prefix = botConfig.prefix;
+    var prefix = botconfig.prefix;
  
     var messageArray = message.content.split(" ");
  
@@ -394,4 +394,4 @@ bot.on("message", async message => {
  
 });
  
-bot.login(botConfig.token);
+bot.login(process.env.token);
