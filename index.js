@@ -76,7 +76,7 @@ fs.readdir("./NVT C/", (err, files) => {
 
 })
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./Help C/", (err, files) => {
 
     if (err) console.log(err);
 
@@ -89,7 +89,7 @@ fs.readdir("./commands/", (err, files) => {
 
     jsFiles.forEach((f, i) => {
 
-        var fileGet = require(`./commands/${f}`);
+        var fileGet = require(`./Help C/${f}`);
         console.log(`De file ${f} is geladen`);
 
         bot.commands.set(fileGet.help.name, fileGet);
@@ -164,48 +164,28 @@ fs.readdir("./Game C/", (err, files) => {
 
 })
 
-bot.on("ready", async() => {
+bot.on("ready", async () => {
 
     console.log(`${bot.user.username} is online`);
 
-    bot.user.setActivity("Storm Developing (Prefix: !)", { type: "PLAYING" });
+    bot.user.setActivity("GamesNL Developing", { type: "PLAYING" });
 
-    answered = true;
-    cAnswer = "";
-    userAnswer = "";
 });
 
 bot.on("guildMemberAdd", member => {
 
-    var role = member.guild.roles.find("name", "Klant");
+    var role = member.guild.roles.find("name", "klant");
 
-    if (!role) return;
+    if (!role) return message.channel.send("Deze rol bestaat niet");
 
     member.addRole(role);
 
-//     const channel = member.guild.channels.find("name", "🌐-welkomers")
+    const channel = member.guild.channels.find("name", "welkom");
 
-//     if (!channel) return;
+    if (!channel) return;
 
-//     channel.send(`Welkom bij StormCompany ${member}`);
+    channel.send(`Welkom ${member} bij de GamesNL community lees even de regels door`)
 
-// });
-
-bot.on("guildMemberAdd", member => {
- 
-    const channel = member.guild.channels.find("name", "🌐-welkomers");
-    if (!channel) console.log("Kan het kanaal niet vinden.");
- 
-    var joinEmbed = new discord.RichEmbed()
-        .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
-        .setDescription(`Hoi ${member.user.username}, **Welkom op de ${server}**.`)
-        .setColor("RANDOM")
-        .setTimestamp()
-        .setFooter("Gebruiker gejoined.")
-        .setFooter("© 2019 StormCompany");
- 
-    channel.send(joinEmbed);
- 
 });
 
 
@@ -252,7 +232,7 @@ bot.on("message", async message => {
 
     var idUser = message.author.id;
 
-    if (!levelFile[idUser]) {
+    if(!levelFile[idUser]){
 
         levelFile[idUser] = {
 
@@ -269,25 +249,25 @@ bot.on("message", async message => {
     var xpUser = levelFile[idUser].xp;
     var nextLevelXp = levelUser * 500;
 
-    if (nextLevelXp === 0) nextLevelXp = 100;
+    if(nextLevelXp === 0) nextLevelXp = 100;
 
-    if (xpUser >= nextLevelXp) {
+    if( xpUser >= nextLevelXp){
 
         levelFile[idUser].level += 1;
 
         fs.writeFile("./data/levels.json", JSON.stringify(levelFile), err => {
 
-            if (err) console.log(err);
+            if(err) console.log(err);
 
         });
 
         var logo = bot.user.displayAvatarURL;
 
         var embedLevel = new discord.RichEmbed()
-            .setDescription("***Level hoger***")
-            .setColor("#00eeff")
-            .setThumbnail(logo)
-            .addField("Nieuw level: ", levelFile[idUser].level)
+        .setDescription("***Level hoger***")
+        .setColor("#00eeff")
+        .setThumbnail(logo)
+        .addField("Nieuw level: ", levelFile[idUser].level)
 
         message.channel.send(embedLevel);
 
@@ -372,7 +352,31 @@ bot.on("message", async message => {
 
     }
 
-})
+    if(!coins[message.author.id]){
+        coins[message.author.id] = {
+            coins: 0
+        };
+    }
 
+    let coinAmt = Math.floor(Math.random()) * 15 + 1;
+    let baseAmt = Math.floor(Math.random()) * 15 + 1;
+    console.log(`${coinAmt} ; ${baseAmt}`);
+
+    if(coinAmt === baseAmt){
+        coins[message.author.id] = {
+            coins: coins[message.author.id].coins + coinAmt
+        };
+        fs.writeFile("../data/coins.json", JSON.stringify(coins), (err) => {
+            if (err) console.log(err)
+        });
+        let coinEmbed = new discord.RichEmbed()
+        .setAuthor(message.author.username)
+        .setColor("#000000ff")
+        .addField("💰", `${coinAmt} coins toegevoegd`);
+
+        message.channel.send(coinEmbed).then(msg => {msg.delete(60000)})
+    }
+
+});
 
 bot.login(process.env.token);
