@@ -32,28 +32,6 @@ fs.readdir("./Gebruiker C/", (err, files) => {
 
 })
 
-fs.readdir("./Help C/", (err, files) => {
-
-    if (err) console.log(err);
-
-    var jsFiles = files.filter(f => f.split(".").pop() === "js");
-
-    if (jsFiles.length <= 0) {
-        console.log("Kon geen files vinden");
-        return;
-    }
-
-    jsFiles.forEach((f, i) => {
-
-        var fileGet = require(`./Help C/${f}`);
-        console.log(`De file ${f} is geladen`);
-
-        bot.commands.set(fileGet.help.name, fileGet);
-
-    })
-
-})
-
 fs.readdir("./Admin C/", (err, files) => {
 
     if (err) console.log(err);
@@ -75,6 +53,51 @@ fs.readdir("./Admin C/", (err, files) => {
     })
 
 })
+
+fs.readdir("./NVT C/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./NVT C/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+})
+
+fs.readdir("./commands/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./commands/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+})
+
 fs.readdir("./Bot C/", (err, files) => {
 
     if (err) console.log(err);
@@ -89,6 +112,28 @@ fs.readdir("./Bot C/", (err, files) => {
     jsFiles.forEach((f, i) => {
 
         var fileGet = require(`./Bot C/${f}`);
+        console.log(`De file ${f} is geladen`);
+
+        bot.commands.set(fileGet.help.name, fileGet);
+
+    })
+
+})
+
+fs.readdir("./Server C/", (err, files) => {
+
+    if (err) console.log(err);
+
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+
+    jsFiles.forEach((f, i) => {
+
+        var fileGet = require(`./Server C/${f}`);
         console.log(`De file ${f} is geladen`);
 
         bot.commands.set(fileGet.help.name, fileGet);
@@ -119,7 +164,7 @@ fs.readdir("./Game C/", (err, files) => {
 
 })
 
-bot.on("ready", async () => {
+bot.on("ready", async() => {
 
     console.log(`${bot.user.username} is online`);
 
@@ -153,7 +198,7 @@ bot.on("guildMemberAdd", member => {
  
     var joinEmbed = new discord.RichEmbed()
         .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
-        .setDescription(`Hoi ${member.user.username}, **Welkom op de ${server}**. Lees even #🚫-regels.`)
+        .setDescription(`Hoi ${member.user.username}, **Welkom op de ${server}**.`)
         .setColor("RANDOM")
         .setTimestamp()
         .setFooter("Gebruiker gejoined.")
@@ -327,32 +372,7 @@ bot.on("message", async message => {
 
     }
 
-    // if(!coins[message.author.id]){
-    //     coins[message.author.id] = {
-    //         coins: 0
-    //     };
-    // }
-
-    // let coinAmt = Math.floor(Math.random()) * 15 + 1;
-    // let baseAmt = Math.floor(Math.random()) * 15 + 1;
-    // console.log(`${coinAmt} ; ${baseAmt}`);
-
-    // if(coinAmt === baseAmt){
-    //     coins[message.author.id] = {
-    //         coins: coins[message.author.id].coins + coinAmt
-    //     };
-    //     fs.writeFile("../data/coins.json", JSON.stringify(coins), (err) => {
-    //         if (err) console.log(err)
-    //     });
-    //     let coinEmbed = new discord.RichEmbed()
-    //     .setAuthor(message.author.username)
-    //     .setColor("#000000ff")
-    //     .addField("💰", `${coinAmt} coins toegevoegd`);
-
-    //     message.channel.send(coinEmbed).then(msg => {msg.delete(60000)})
-    // }
-
-});
+})
 
 
 bot.login(process.env.token);
