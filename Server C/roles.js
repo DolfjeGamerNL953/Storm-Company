@@ -13,12 +13,12 @@ module.exports.run = async (bot, message, args) => {
     const embed = new RichEmbed()
         .setTitle('Avaiabble Roles')
         .setDescription(`
-    A ${a.toString()}
-    B ${b.toString()}
-    C ${c.toString()}
-    
-
+    A ${a.toString()};
+    B ${b.toString()};
+    C ${c.toString()};
     `)
+
+    
         .setColor('RANDOM')
         .setFooter(`ID: ${message.author.id}`);
 
