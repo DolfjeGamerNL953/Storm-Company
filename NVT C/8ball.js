@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     const ballEmbed = new discord.RichEmbed()
     .setTitle('8ball command')
     .setColor('RANDOM')
-    .addField(args, saying[result]);
+    .addField(args, sayings[result]);
 
     message.channel.send(ballEmbed)
 }
