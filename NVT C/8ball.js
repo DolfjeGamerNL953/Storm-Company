@@ -2,20 +2,16 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    
-    if(!args[2]) return message.reply("Stel een volledige vraag");
-    let replies = ["Yes., Nee., Misschien."];
+    var sayings = ["Yes", "No", "Maybe", "Probably no", "Probably yes"]
+        
+    var result = Math.floor((Math.random() * sayings.lenght) + 0);
 
-    let result = Math.floor((Math.random() * replies.lenght));
-    let question = args.slice(1).join(" ");
+    const ballEmbed = new discord.RichEmbed()
+    .setTitle('8ball command')
+    .setColor('RANDOM')
+    .addField(args, saying[result]);
 
-    let ballembed = new discord.RichEmbed()
-    .setAuthor(message.author.tag)
-    .setColor("#ff9900")
-    .addField("Question", question)
-    .addField("Answer", result);
-
-    message.channel.send(ballembed)
+    message.channel.send(ballEmbed)
 }
 
 
