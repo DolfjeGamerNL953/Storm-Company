@@ -54,7 +54,7 @@ fs.readdir("./Admin C/", (err, files) => {
  
 })
  
-fs.readdir("./Help C C/", (err, files) => {
+fs.readdir("./Help C /", (err, files) => {
  
     if (err) console.log(err);
  
@@ -67,7 +67,7 @@ fs.readdir("./Help C C/", (err, files) => {
  
     jsFiles.forEach((f, i) => {
  
-        var fileGet = require(`./Help C C/${f}`);
+        var fileGet = require(`./Help C /${f}`);
         console.log(`De file ${f} is geladen`);
  
         bot.commands.set(fileGet.help.name, fileGet);
