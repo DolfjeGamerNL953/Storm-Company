@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     var sayings = ["Yes", "No", "Maybe", "Probably no", "Probably yes"]
         
-    var result = Math.floor((Math.random() * sayings.lenght) + 0);
+    var result = Math.floor((Math.random() * sayings.length) + 0);
 
     const ballEmbed = new discord.RichEmbed()
     .setTitle('8ball command')
