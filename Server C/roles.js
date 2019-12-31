@@ -13,9 +13,9 @@ module.exports.run = async (bot, message, args) => {
     const embed = new RichEmbed()
         .setTitle('Avaiabble Roles')
         .setDescription(`
-    A ${a.tostring()};
-    B ${b.tostring()};
-    C ${c.tostring()};
+    A ${a.toString()};
+    B ${b.toString()};
+    C ${c.toString()};
     `)
 
     
