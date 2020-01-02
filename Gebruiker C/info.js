@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     var icon = message.guild.iconURL
     var discordtext = "https://discord.gg/yDazdYJ"
     var alphatext = "https://discord.gg/cQfmhja"
-    var websitetext = "https://stormcomp.webnode.nl/"
+    var websitetext = "https://stcompany.webnode.nl/"
     var iptext = "play.alphanetwork.nl"
     var versietext = "1.12.2 t/m 1.13.3"
 
