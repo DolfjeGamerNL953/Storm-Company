@@ -2,6 +2,8 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}kick <Gebruiker> <Reden>.`);
+    
     // !kick @DolfjeGamerNL redenen hier.
 
     var kickUser = message.guild.member(message.mentions.users.first() || message.guild.member(args[0]));
