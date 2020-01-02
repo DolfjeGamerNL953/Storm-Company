@@ -1,11 +1,6 @@
 const discord = require("discord.js");
-const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
-
-    var prefixes = JSON.parse(fs.readFileSync("./prefixes.json"));
-
-    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}kick <Gebruiker> <Reden>.`);
 
     // !kick @DolfjeGamerNL redenen hier.
 
@@ -27,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Reden", reason);
 
     var kickChannel = message.guild.channels.find("name", "kick-logs");
-    if (!kickChannel) return console.log("Het kanaal is niet gevonden");
+    if (!kickChannel) return message.guild.send("Het kanaal is niet gevonden");
 
     message.guild.member(kickUser).kick(reason);
 

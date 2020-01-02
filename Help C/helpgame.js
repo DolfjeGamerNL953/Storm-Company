@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("Help Commands")
     .setColor("RANDOM")
     .addField("!helpgame --> Laat deze lijst met commands zien \n\ !sps > Speel steen, papier, schaar met de bot")
-    .setFooter("**© 2019 StormCompany**");
+    .setFooter("© 2019 StormCompany");
 
     message.channel.send(helpgameEmbed)
 }
