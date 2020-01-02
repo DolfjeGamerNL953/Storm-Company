@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     var prijzenEmbed = new discord.RichEmbed()
     .setTitle("Prijzen")
-    .setDescription("Prijs Aantallen: \n Eten: Per 64, 32 of per stuk \n Vita: Per 16 of per stuk \n Kleding: Per 8 of per stuk \n Toys: Per 16 of per stuk \n Heads: Per 16 of per stuk")
+    .setDescription("Prijs Aantallen: \n Eten: Per 64, 32 of per stuk \n Vita: Per 16 of per stuk \n Kleding: Per 8 of per stuk \n Toys: Per 16 of per stuk \n Heads: Per 16 of per stuk \n\n Voor meer info over de pakketten doe !pakketten")
     .setColor("RANDOM")
     .setThumbnail(icon)
     .addField("Prijzen Pakketen:", "Storm kleding kerst: \n €14.518,30 \n\n Storm kleding enchant: \n €14.017,50 \n\n Storm kleding non enchant: \n €11.013,80 \n\n Storm toys: \n €7.057,60 \n\n Storm pro: \n €4.710,50 \n\n Storm vita: €2.740,50 \n\n Storm fruit: €1.005,20 \n\n Storm snoep: €944,90 \n\n Storm Head Pakket: €748,80 \n\n Storm overig: €730,50")
