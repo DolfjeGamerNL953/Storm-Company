@@ -2,7 +2,8 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!args[0]) return message.channel.send("Gebruik: ?clear <aantal>");
+  
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}clear <vraag>.`);
 
     // !clear 21
 

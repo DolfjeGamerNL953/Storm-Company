@@ -3,6 +3,7 @@ const discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}addrole <Gebruiker> <Rol>.`);
 
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("U heeft hier geen permissies voor");
     var rMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));

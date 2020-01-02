@@ -2,8 +2,8 @@ const discord = require("discord.js");
  
 module.exports.run = async (bot, message, args) => {
  
-    if (!args[0]) return message.channel.send("Gebruik: ?ban <gebruiker> <reden>");
- 
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}ban <Gebruiker> <Reden>.`);
+    
     var banUser = message.guild.member(message.mentions.users.first() || message.guild.member(args[0]));
  
     if (!banUser) return message.channel.send(`Gebruik: ${prefix}ban <gebruiker> <reden>.`);
