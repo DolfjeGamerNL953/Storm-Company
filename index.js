@@ -2,9 +2,9 @@ const discord = require("discord.js");
 const botconfig = require("./botconfig.json");
 const levelFile = require("./data/levels.json");
 const coins = require("./data/coins.json");
- 
+const prefix = '!';
 const fs = require("fs");
- 
+const c = JSON.parse(fs.readFileSync('Storage/commands.json', 'utf8'));
 const active = new Map();
  
 const bot = new discord.Client();
@@ -201,7 +201,6 @@ bot.on("message", async message => {
  
     // var prefix = prefixes[message.guild.id].prefixes;
  
-    var prefix = botconfig.prefix;
  
     var messageArray = message.content.split(" ");
  
@@ -346,31 +345,40 @@ bot.on("message", async message => {
  
     }
  
-    // if(!coins[message.author.id]){
-    //     coins[message.author.id] = {
-    //         coins: 0
-    //     };
-    // }
- 
-    // let coinAmt = Math.floor(Math.random()) * 15 + 1;
-    // let baseAmt = Math.floor(Math.random()) * 15 + 1;
-    // console.log(`${coinAmt} ; ${baseAmt}`);
- 
-    // if(coinAmt === baseAmt){
-    //     coins[message.author.id] = {
-    //         coins: coins[message.author.id].coins + coinAmt
-    //     };
-    //     fs.writeFile("../data/coins.json", JSON.stringify(coins), (err) => {
-    //         if (err) console.log(err)
-    //     });
-    //     let coinEmbed = new discord.RichEmbed()
-    //     .setAuthor(message.author.username)
-    //     .setColor("#000000ff")
-    //     .addField("💰", `${coinAmt} coins toegevoegd`);
- 
-    //     message.channel.send(coinEmbed).then(msg => {msg.delete(60000)})
-    // }
- 
+    
+
+        
+    
+    
 });
+if (msg.starsWith(prefix + 'HELP')) {
+    if( msg === `${prefix}HELP`)
+    var embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+
+    let commandsFound = 0;
+
+    for (var cmd in commands) {
+        if (commands[cmd].group.toUpperCase() === 'USER'){
+
+            commandsFound++
+
+            embed.addField(`${commands[cmd].name}`, `**Description:** ${commands[cmd].desc}\n**Usage:** ${prefix + commands[cmd].usage}`)
+        }
+
+
+    }
+
+    
+        embed.setFooter(`Currently showing user commands. to view another group do ${prefix}help [group / command]`)
+        embed.setDescription(`**${commandsFound} commands found** - <> means required, [] means optional`);
+
+
+    message.author.send({embed})
+
+    message.channel.send(embed)
+    }
+
+    
  
 bot.login(process.env.token);
