@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.help = {
     name: "help",
-    aliases: ["h"],
+    aliases: ["f"],
     category: "gebruiker",
     description: "Returns all comands, or one specific command info",
     usage: "[command | alias]",
