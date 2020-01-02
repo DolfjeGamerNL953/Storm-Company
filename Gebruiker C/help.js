@@ -1,5 +1,5 @@
 const { RichEmbed } = require("discord.js");
-const { stripIndents } = require("common-tags"); "6.4K (gripped: 2K)"
+const { stripIndents } = require("common-tags"); 
 
 module.exports.run = async (bot, message, args) => {
 
