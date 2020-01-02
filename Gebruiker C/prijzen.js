@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     var prijzenEmbed = new discord.RichEmbed()
     .setTitle("Prijzen")
-    .setDescription("Prijs Aantallen: \n Eten: Per 64, 32 of per stuk \n Vita: Per 16 of per stuk \n Kleding: Per 8 of per stuk \n Toys: Per 16 of per stuk")
+    .setDescription("Prijs Aantallen: \n Eten: Per 64, 32 of per stuk \n Vita: Per 16 of per stuk \n Kleding: Per 8 of per stuk \n Toys: Per 16 of per stuk \n Heads: Per 16 of per stuk")
     .setColor("RANDOM")
     .setThumbnail(icon)
     .addField("Prijzen Pakketen:", "Storm kleding kerst: \n €14.518,30 \n\n Storm kleding enchant: \n €14.017,50 \n\n Storm kleding non enchant: \n €11.013,80 \n\n Storm toys: \n €7.057,60 \n\n Storm pro: \n €4.710,50 \n\n Storm vita: €2.740,50 \n\n Storm fruit: €1.005,20 \n\n Storm snoep: €944,90 \n\n Storm Head Pakket: €748,80 \n\n Storm overig: €730,50")
@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Prijzen Vitamines:", "Vita A: \n Per 16x: €511,80 \n Per 1x: €32,00 \n\n Vita B: \n Per 16x: €612,80 \n Per 1x: €38,40 \n\n Vita C: \n Per 16x: €713,80 \n Per 1x: €44,70 \n\n Vita D: \n Per 16x: €915,80 \n Per 1x: €57,30")
     .addField("Prijzen kleding", "Lange kersttrui kerstman: \n Per 8x: €3.508,80 \n Per 1x: €438,60 \n\n Lange kersttrui rendier: \n Per 8x: €3.508,80 \n Per 1x: €438,60 \n\n Kersttrui rendier: \n Per 8x: €2.506,30 \n Per 1x: €313,30 \n\n Kersttrui kerstman: \n Per 8x: €2.506,30 \n Per 1x: €313,30 \n\n Kersttrui kerstboom: \n Per 8x: €2.506,30 \n Per 1x: €313,30 \n\n Kerstgroen non enchant: \n Per 8x: €3.007,50 \n Per 1x: €376,00 \n\n Kerstgroen enchant: \n Per 8x: €3.007,50 \n Per 1x: €376,00 \n\n Zuurstok rood non enchant: \n Per 8x: €3.007,50 \n Per 1x: €376,00 \n\n Zuurstok rood enchant: \n Per 8x: €3.007,50 \n Per 1x: €376,00 \n\n Vlinderstrikje roze non enchant: \n Per 8x: €2.005,00 \n Per 1x: €250,70 \n\n Vlinderstrikje roze enchant: \n Per 8x: €3.007,50 \n Per 1x: €376,00 \n\n Piek geel non enchant: \n Per 8x: €2.005,00 \n Per 1x: €250,70 \n\n Piek geel enchant \n Per 8x: €3.007,50 \n Per 1x: €376,00 \n\n Blauw ijs non enchant: \n Per 8x: €1.002,50 \n Per 1x: €125,40 \n\n Blauw ijs enchant: \n Per 8x: €2.005,00 \n Per 1x: €250,70")
     .addField("Prijzen toys", "Videocamera: \n Per 16x: €4.020,00 \n Per 1x: €251,30 \n\n Papegaai: \n Per 16x €804,,00 \n Per 1x: €50,30 \n\n Panda: \n Per 16x €804,,00 \n Per 1x: €50,30 \n\n Hulk: \n Per 16x €804,,00 \n Per 1x: €50,30 \n\n Rotjochie figuur \n Per 16x: €643,20 \n Per 1x: €40,20")
+    .addField("Prijzen Heads", "Panda head: \n Per 16x: €227,30 \n Per 1x: €14,30 \n\n Blaze head: Per 16x €202,00 \n Per 1x: €12,70 \n\n Romeo30 Head: \n Per 16x: €161,60 \n Per 1x €10,10 \n\n Jordystorm Head:  Per 16x: €161,60 \n Per 1x €10,10")
     .setFooter("© 2019 StormCompany");
 
     message.channel.send(prijzenEmbed)
