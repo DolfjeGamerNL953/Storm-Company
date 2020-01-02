@@ -4,7 +4,7 @@ const levelFile = require("./data/levels.json");
 const coins = require("./data/coins.json");
 const prefix = '!';
 const fs = require("fs");
-const c = JSON.parse(fs.readFileSync('Storage/commands.json', 'utf8'));
+const c = JSON.parse(fs.readFileSync('./Storage/commands.json', 'utf8'));
 const active = new Map();
  
 const bot = new discord.Client();
