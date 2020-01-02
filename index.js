@@ -4,7 +4,6 @@ const levelFile = require("./data/levels.json");
 const coins = require("./data/coins.json");
 const prefix = '!';
 const fs = require("fs");
-const c = JSON.parse(fs.readFileSync('./Storage/commands.json', 'utf8'));
 const active = new Map();
  
 const bot = new discord.Client();
@@ -167,7 +166,7 @@ bot.on("guildMemberAdd", member => {
  
     if (!channel) console.log("Kan welkom kanaal niet vinden")
  
-    channel.send(`Welkom ${member} bij de StormComp community lees even de regels door`)
+    // channel.send(`Welkom ${member} bij de StormComp community lees even de regels door`)
  
     var joinEmbed = new discord.RichEmbed()
     .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
@@ -351,34 +350,6 @@ bot.on("message", async message => {
     
     
 });
-if (msg.starsWith(prefix + 'HELP')) {
-    if( msg === `${prefix}HELP`)
-    var embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-
-    let commandsFound = 0;
-
-    for (var cmd in commands) {
-        if (commands[cmd].group.toUpperCase() === 'USER'){
-
-            commandsFound++
-
-            embed.addField(`${commands[cmd].name}`, `**Description:** ${commands[cmd].desc}\n**Usage:** ${prefix + commands[cmd].usage}`)
-        }
-
-
-    }
-
-    
-        embed.setFooter(`Currently showing user commands. to view another group do ${prefix}help [group / command]`)
-        embed.setDescription(`**${commandsFound} commands found** - <> means required, [] means optional`);
-
-
-    message.author.send({embed})
-
-    message.channel.send(embed)
-    }
-
     
  
 bot.login(process.env.token);
