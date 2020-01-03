@@ -5,9 +5,6 @@ const coins = require("./data/coins.json");
 const prefix = '!';
 const fs = require("fs");
 const active = new Map();
-
-let msg = message.content.toUpperCase();
-let sender = message.author;
  
 const bot = new discord.Client();
 bot.commands = new discord.Collection();
@@ -353,6 +350,8 @@ bot.on("message", async message => {
     
     
 });
+
+let msg = message.content.toUpperCase();
 
 if (msg.starsWith(prefix + 'HELP')) {
     if( msg === `${prefix}HELP`)
