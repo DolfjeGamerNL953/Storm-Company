@@ -350,6 +350,29 @@ bot.on("message", async message => {
     
     
 });
+
+if (msg.starsWith(prefix + 'HELP')) {
+    if( msg === `${prefix}HELP`)
+    var embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .addField("test")
+
+    let commandsFound = 0;
+
+    for (var cmd in commands) {
+        if (commands[cmd].group.toUpperCase() === 'USER'){
+
+            commandsFound++
+
+            }
+
+    }
+
+    
+        
+    }
+
+
     
  
 bot.login(process.env.token);
