@@ -209,7 +209,7 @@ bot.on("message", async message => {
  
     var commands = bot.commands.get(command.slice(prefix.length));
  
-    var msg = message.content.toUpperCase
+    const msg = message.content.toUpperCase
 
     var options = {
  
