@@ -5,9 +5,15 @@ module.exports.run = async (bot, message, args) => {
 
     const onlyHelp = new discord.RichEmbed()
         .setColor(0x1D2B6)
-        .addField("hai")
+        .addField("Test")
 
     message.channel.send(onlyHelp)
+
+    let commandsFound = 0;
+
+    for (var cmd in commands) {
+
+    }
 }
 
 module.exports.help = {
