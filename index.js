@@ -5,6 +5,9 @@ const coins = require("./data/coins.json");
 const prefix = '!';
 const fs = require("fs");
 const active = new Map();
+
+let msg = message.content.toUpperCase();
+let sender = message.author;
  
 const bot = new discord.Client();
 bot.commands = new discord.Collection();
@@ -216,7 +219,7 @@ bot.on("message", async message => {
  
     }
  
-    if (commands) commands.run(bot, message, args, options, msg);
+    if (commands) commands.run(bot, message, args, options);
  
  
     var randomxP = Math.floor(Math.random(1) * 15 + 1);
@@ -351,12 +354,11 @@ bot.on("message", async message => {
     
 });
 
+if (msg.starsWith(prefix + 'HELP')) {
     if( msg === `${prefix}HELP`)
     var embed = new Discord.RichEmbed()
     .setColor('RANDOM')
-    .addField("test")
 
-    message.channel.send(embed)
     let commandsFound = 0;
 
     for (var cmd in commands) {
@@ -364,14 +366,19 @@ bot.on("message", async message => {
 
             commandsFound++
 
-            }
+            embed.addField(`${commands[cmd].name}`, `**Description:** ${commands[cmd].desc}\n**Usage:** ${prefix + commands[cmd].usage}`)
+        }
 
     }
 
     
-        
-    
+        embed.setFooter(`Currently showing user commands. to view another group do ${prefix}help [group / command]`)
+        embed.setDescription(`**${commandsFound} commands found** - <> means required, [] means optional`);
 
+    message.author.send({embed})
+
+    message.channel.send(embed)
+    }
 
     
  
