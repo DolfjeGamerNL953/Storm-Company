@@ -357,6 +357,7 @@ if (msg.starsWith(prefix + 'HELP')) {
     .setColor('RANDOM')
     .addField("test")
 
+    message.channel.send(embed)
     let commandsFound = 0;
 
     for (var cmd in commands) {
