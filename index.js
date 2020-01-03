@@ -209,7 +209,8 @@ bot.on("message", async message => {
  
     var commands = bot.commands.get(command.slice(prefix.length));
  
- 
+    var msg = message.content.toUpperCase
+
     var options = {
  
         active: active
@@ -350,8 +351,6 @@ bot.on("message", async message => {
     
     
 });
-
-let msg = message.content.toUpperCase();
 
 if (msg.starsWith(prefix + 'HELP')) {
     if( msg === `${prefix}HELP`)
