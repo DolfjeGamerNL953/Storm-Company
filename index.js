@@ -351,7 +351,6 @@ bot.on("message", async message => {
     
 });
 
-if (msg.starsWith(prefix + 'HELP')) {
     if( msg === `${prefix}HELP`)
     var embed = new Discord.RichEmbed()
     .setColor('RANDOM')
@@ -371,7 +370,7 @@ if (msg.starsWith(prefix + 'HELP')) {
 
     
         
-    }
+    
 
 
     
