@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     const onlyHelp = new discord.RichEmbed()
         .setColor(0x1D2B6)
-        .addField("Test")
+        .addField(`${commands[cmd].name}`, `**Description:** ${commands[cmd].desc}\n**Usage:** ${prefix + commands[cmd].usage}`);
 
     message.channel.send(onlyHelp)
 
