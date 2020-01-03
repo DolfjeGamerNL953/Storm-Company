@@ -34,4 +34,4 @@ module.exports.help = {
     
         message.channel.send(infoEmbed)
     }
-}
+}{
