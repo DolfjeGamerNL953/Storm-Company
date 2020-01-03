@@ -216,7 +216,7 @@ bot.on("message", async message => {
  
     }
  
-    if (commands) commands.run(bot, message, args, options);
+    if (commands) commands.run(bot, message, args, options, msg);
  
  
     var randomxP = Math.floor(Math.random(1) * 15 + 1);
