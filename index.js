@@ -209,8 +209,7 @@ bot.on("message", async message => {
  
     var commands = bot.commands.get(command.slice(prefix.length));
  
-    let msg = message.content.toUpperCase
-
+ 
     var options = {
  
         active: active
@@ -351,33 +350,6 @@ bot.on("message", async message => {
     
     
 });
-
-if (msg.starsWith(prefix + 'HELP')) {
-    if( msg === `${prefix}HELP`)
-    var embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-
-    let commandsFound = 0;
-
-    for (var cmd in commands) {
-        if (commands[cmd].group.toUpperCase() === 'USER'){
-
-            commandsFound++
-
-            embed.addField(`${commands[cmd].name}`, `**Description:** ${commands[cmd].desc}\n**Usage:** ${prefix + commands[cmd].usage}`)
-        }
-
-    }
-
-    
-        embed.setFooter(`Currently showing user commands. to view another group do ${prefix}help [group / command]`)
-        embed.setDescription(`**${commandsFound} commands found** - <> means required, [] means optional`);
-
-    message.author.send({embed})
-
-    message.channel.send(embed)
-    }
-
     
  
 bot.login(process.env.token);
