@@ -360,7 +360,7 @@ bot.on("message", async message => {
             if (msg === `${prefix}HELP`) {
 
               // Start of the embed
-                const embed = new discord.RichEmbed()
+                const embed = new Discord.RichEmbed()
                     .setColor(0x1D82B6)
 
                 //Variables
@@ -434,7 +434,7 @@ bot.on("message", async message => {
               if (groupFound != '') { // If a group is found, run this statement.
 
                 // Start of the embed
-                  const embed = new discord.RichEmbed()
+                  const embed = new Discord.RichEmbed()
                       .setColor(0x1D82B6) // You can set this color to whatever you want.
 
                   //Variables
