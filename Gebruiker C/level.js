@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
     
         message.channel.send(embedLevel).then(msg => { msg.delete(60000) })
 }
-    
+   
 module.exports.help = {
     name: "level"
 }
