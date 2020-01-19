@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter(`${whenNextLevel} Xp tot volgend level`, message.author.displayAvatarURL)
         .addField("**© 2019 StormCompany**");
     
-        message.channel.send(embedLevel).then(msg => { msg.delete(60000) })
+        message.channel.send(embedLevel).then(msg => { msg.delete(6000) })
 }
    
 module.exports.help = {
