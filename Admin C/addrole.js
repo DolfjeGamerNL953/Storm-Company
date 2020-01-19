@@ -3,7 +3,7 @@ const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 
-    var prefixes = JSON.parse(fs.readFileSync("./prefixes.json"));
+    var prefix = JSON.parse(fs.readFileSync("./prefixes.json"));
 
     if (!args[0]) return message.channel.send(`Gebruik: ${prefix}addrole <Gebruiker> <Rol>.`);
 
