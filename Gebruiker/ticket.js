@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) return message.channel.send(`Gebruik: ${prefix}ticket <reden>.`);
 
-    
+    var reason = args.join(" ").slice(22);
  
     // ID van de categorie van de tickets.
     const categoryId = "651114524149022730";
@@ -38,9 +38,10 @@ module.exports.run = async (bot, message, args) => {
  
     var embedCreateTicket = new discord.RichEmbed()
     .setDescription("Ticket")
-    .setTitle("Hai," + message.author.username)
-    .setFooter("Support kanaal is aangemaakt")
-    .setColor("RANDOM");
+    .setColor("RANDOM")
+    .addField("Reden", reason)
+    .setFooter("Support kanaal is aangemaakt");
+
  
     message.channel.send(embedCreateTicket);
 
