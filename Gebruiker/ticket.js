@@ -1,6 +1,12 @@
 const discord = require("discord.js");
  
 module.exports.run = async (bot, message, args) => {
+
+    var prefix = '!'
+
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}ticket <reden>.`);
+
+    var reason = args.join(" ").slice(22);
  
     // ID van de categorie van de tickets.
     const categoryId = "651114524149022730";
@@ -33,6 +39,7 @@ module.exports.run = async (bot, message, args) => {
     var embedCreateTicket = new discord.RichEmbed()
     .setDescription("Ticket")
     .setTitle("Hai," + message.author.username)
+    .addField("Reden:", reason)
     .setFooter("Support kanaal is aangemaakt")
     .setColor("RANDOM");
  
@@ -44,6 +51,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Hai," + message.author.username)
     .setFooter("Support kanaal is aangemaakt")
     .setColor("#00eeff")
+    .addField("Reden:", reason)
     .addField("**© 2019 StormCompany**");
 
  

@@ -2,6 +2,8 @@ const discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
+    var prefix = '!'
+
     if (!args[0]) return message.channel.send(`Gebruik: ${prefix}8ball <vraag>.`);
     var question = message.member.send
 

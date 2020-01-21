@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     // {prefix}report speler reden
 
-    var prefix = botConfig.prefix;
+    var prefix = '!'
 
     if (!args[0]) return message.channel.send(`"Gebruik: ${prefix}report <gebruikersnaam> <redenen>.`)
 

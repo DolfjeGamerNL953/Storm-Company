@@ -6,6 +6,9 @@ const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 module.exports.run = async (bot, message, args) => {
 
     // !warn gebruiker 
+    var prefix = '!'
+ 
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}warn <Gebruiker> <Reden>.`);
 
     if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("U heeft hier geen permissies voor");
 

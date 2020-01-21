@@ -5,6 +5,10 @@ module.exports.run = async (bot, message, args) => {
 
     // !tempmute gebruiker 1h
 
+    var prefix = '!'
+ 
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}tempmute <Gebruiker> <Reden>.`);
+
     if (!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("U heeft hier geen permissies voor");
 
     var user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));

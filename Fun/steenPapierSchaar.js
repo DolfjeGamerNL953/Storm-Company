@@ -2,7 +2,9 @@ module.exports.run = async (bot, message, args) => {
 
     // sps steen papier schaar.
 
-    if(!args[0]) return message.channel.send("Gebruik sps <steen>, <papier>, <schaar>");
+    var prefix = '!'
+
+    if(!args[0]) return message.channel.send(`Gebruik ${prefix}sps <steen>, <papier>, <schaar>`);
 
     var options = ["steen", "papier", "schaar"];
 

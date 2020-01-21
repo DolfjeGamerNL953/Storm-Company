@@ -4,6 +4,8 @@ module.exports.run = async (bot, message, args) => {
 
     // !kick @DolfjeGamerNL redenen hier.
 
+    var prefix = '!'
+ 
     var kickUser = message.guild.member(message.mentions.users.first() || message.guild.member(args[0]));
 
     if (!kickUser) return message.channel.send(`Gebruik: ${prefix}kick <gebruiker> <reden>.`);
