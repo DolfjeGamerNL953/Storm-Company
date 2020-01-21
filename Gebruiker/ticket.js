@@ -38,10 +38,9 @@ module.exports.run = async (bot, message, args) => {
  
     var embedCreateTicket = new discord.RichEmbed()
     .setDescription("Ticket")
-    .setColor("RANDOM")
-    .addField("Reden", reason)
-    .setFooter("Support kanaal is aangemaakt");
-
+    .setTitle("Hai," + message.author.username)
+    .setFooter("Support kanaal is aangemaakt")
+    .setColor("RANDOM");
  
     message.channel.send(embedCreateTicket);
 
@@ -76,7 +75,9 @@ module.exports.run = async (bot, message, args) => {
  
             var embedParent = new discord.RichEmbed()
                 .setTitle("Hoi, " + message.author.username.toString())
-                .setDescription("Zet hier je vraag/bericht");
+                .setDescription("Zet hier je vraag/bericht")
+                .setColor('RANDOM')
+                .addField("Reden", reason);
  
             settedParent.send(embedParent);
         }).catch(err => {
