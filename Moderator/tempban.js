@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     var prefix = '!'
  
-    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}tempban <Gebruiker> <Tijd> <Reden>.`);
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}tempban <Gebruiker> <Reden> <Tijd>`);
     // !tempban gebruiker reden tijd
 
     // Nakijken als je wel het command mag gebruiken.
