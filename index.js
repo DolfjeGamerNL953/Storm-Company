@@ -9,7 +9,7 @@ const active = new Map();
 const bot = new discord.Client();
 bot.commands = new discord.Collection();
  
-fs.readdir("./Gebruiker C/", (err, files) => {
+fs.readdir("./Info/", (err, files) => {
  
     if (err) console.log(err);
  
@@ -22,8 +22,8 @@ fs.readdir("./Gebruiker C/", (err, files) => {
  
     jsFiles.forEach((f, i) => {
  
-        var fileGet = require(`./Gebruiker C/${f}`);
-        console.log(`De file ${f} is geladen`);
+        var fileGet = require(`./Info/${f}`);
+        console.log(`De file ${f} is toegevoegd`);
  
         bot.commands.set(fileGet.help.name, fileGet);
  
@@ -31,7 +31,7 @@ fs.readdir("./Gebruiker C/", (err, files) => {
  
 })
  
-fs.readdir("./Admin C/", (err, files) => {
+fs.readdir("./Fun", (err, files) => {
  
     if (err) console.log(err);
  
@@ -44,8 +44,8 @@ fs.readdir("./Admin C/", (err, files) => {
  
     jsFiles.forEach((f, i) => {
  
-        var fileGet = require(`./Admin C/${f}`);
-        console.log(`De file ${f} is geladen`);
+        var fileGet = require(`./Fun/${f}`);
+        console.log(`De file ${f} is toegevoegd`);
  
         bot.commands.set(fileGet.help.name, fileGet);
  
@@ -53,7 +53,7 @@ fs.readdir("./Admin C/", (err, files) => {
  
 })
  
-fs.readdir("./Help C/", (err, files) => {
+fs.readdir("./Gebruiker/", (err, files) => {
  
     if (err) console.log(err);
  
@@ -66,8 +66,8 @@ fs.readdir("./Help C/", (err, files) => {
  
     jsFiles.forEach((f, i) => {
  
-        var fileGet = require(`./Help C/${f}`);
-        console.log(`De file ${f} is geladen`);
+        var fileGet = require(`./Gebruiker/${f}`);
+        console.log(`De file ${f} is toegevoegd`);
  
         bot.commands.set(fileGet.help.name, fileGet);
  
@@ -76,7 +76,7 @@ fs.readdir("./Help C/", (err, files) => {
 })
 
  
-fs.readdir("./Bot C/", (err, files) => {
+fs.readdir("./Management/", (err, files) => {
  
     if (err) console.log(err);
  
@@ -89,8 +89,32 @@ fs.readdir("./Bot C/", (err, files) => {
  
     jsFiles.forEach((f, i) => {
  
-        var fileGet = require(`./Bot C/${f}`);
-        console.log(`De file ${f} is geladen`);
+        var fileGet = require(`./Management/${f}`);
+        console.log(`De file ${f} is toegevoegd`);
+ 
+        bot.commands.set(fileGet.help.name, fileGet);
+ 
+    })
+ 
+})
+
+
+ 
+fs.readdir("./Moderator/", (err, files) => {
+ 
+    if (err) console.log(err);
+ 
+    var jsFiles = files.filter(f => f.split(".").pop() === "js");
+ 
+    if (jsFiles.length <= 0) {
+        console.log("Kon geen files vinden");
+        return;
+    }
+ 
+    jsFiles.forEach((f, i) => {
+ 
+        var fileGet = require(`./Moderator/${f}`);
+        console.log(`De file ${f} is toegevoegd`);
  
         bot.commands.set(fileGet.help.name, fileGet);
  
@@ -98,7 +122,7 @@ fs.readdir("./Bot C/", (err, files) => {
  
 })
  
-fs.readdir("./Server C/", (err, files) => {
+fs.readdir("./Prijzen/", (err, files) => {
  
     if (err) console.log(err);
  
@@ -111,30 +135,8 @@ fs.readdir("./Server C/", (err, files) => {
  
     jsFiles.forEach((f, i) => {
  
-        var fileGet = require(`./Server C/${f}`);
-        console.log(`De file ${f} is geladen`);
- 
-        bot.commands.set(fileGet.help.name, fileGet);
- 
-    })
- 
-})
- 
-fs.readdir("./Game C/", (err, files) => {
- 
-    if (err) console.log(err);
- 
-    var jsFiles = files.filter(f => f.split(".").pop() === "js");
- 
-    if (jsFiles.length <= 0) {
-        console.log("Kon geen files vinden");
-        return;
-    }
- 
-    jsFiles.forEach((f, i) => {
- 
-        var fileGet = require(`./Game C/${f}`);
-        console.log(`De file ${f} is geladen`);
+        var fileGet = require(`./Prijzen/${f}`);
+        console.log(`De file ${f} is toegevoegd`);
  
         bot.commands.set(fileGet.help.name, fileGet);
  
