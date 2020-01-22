@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if (!args[0]) return message.channel.send(`Gebruik: ${prefix}8ball <vraag>.`);
     var question = message.member.send
 
-    var sayings = ["Yes", "No", "Maybe", "Probably no", "Probably yes"]
+    var sayings = ["Tuurlijk", "", "", "", ""]
         
     var result = Math.floor((Math.random() * sayings.length) + 0);
 
