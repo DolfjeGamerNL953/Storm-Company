@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     
     // !mededeling Titel // bericht // kleur // kanaal
 
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("U heeft hier geen permissies voor");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("U heeft hier geen permissies voor");
 
     var splitser = "//";
 

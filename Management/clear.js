@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
 
     var prefix = '!'
   
-    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}clear <vraag>.`);
+    if (!args[0]) return message.channel.send(`Gebruik: ${prefix}clear <aantal>.`);
 
     // !clear 21
 
